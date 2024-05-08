@@ -80,9 +80,7 @@ export const ChatInput = ({ apiUrl, query, name, type }: IChatInput) => {
                                         placeholder={`信息 ${type === "conversation" ? name : "#" + name}`}
                                         {...field}
                                     />
-                                    <div className="absolute top-7 right-8">
-                                        <EmojiPicker onChange={(emoji:string)=>field.onChange(`${field.value} ${emoji}`)} />
-                                    </div>
+                                    
                                 </div>
                             </FormControl>
                         </FormItem>
