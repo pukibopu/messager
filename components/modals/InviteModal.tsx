@@ -14,7 +14,6 @@ import { Button } from "../ui/button";
 import { Check, Copy, RefreshCcw } from "lucide-react";
 import { useOrigin } from "@/hooks/useOrigin";
 import { useState } from "react";
-import { tree } from "next/dist/build/templates/app-page";
 import axios from "axios";
 
 
