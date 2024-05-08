@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
-import {zhCN} from "@clerk/localizations";
-import {ThemeProvider} from "@/components/providers/theme-provider";
-import {cn} from "@/lib/utils";
+import { zhCN } from "@clerk/localizations";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { cn } from "@/lib/utils";
+import { ModalProvider } from "@/components/providers/ModalProvider";
+import { SocketProvider } from '@/components/providers/SocketProvider';
+import { QueryProvider } from '@/components/providers/QueryProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,14 +22,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-      <ClerkProvider localization={zhCN}>
-          <html lang="en" suppressHydrationWarning>
-            <body className={cn(inter.className,"bg-white dark:bg-[#313338]")}>
-                <ThemeProvider attribute='class' defaultTheme='dark' enableSystem storageKey="messager-theme">
+    <ClerkProvider localization={zhCN}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn(inter.className, "bg-white dark:bg-[#313338]")}>
+          <ThemeProvider attribute='class' defaultTheme='dark' enableSystem storageKey="messager-theme">
+            <SocketProvider>
+              <ModalProvider />
+              <QueryProvider>
                 {children}
-                </ThemeProvider>
-            </body>
-          </html>
-      </ClerkProvider>
+              </QueryProvider>
+            </SocketProvider>
+
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
