@@ -99,7 +99,7 @@ export default async function handler(
         },
         data: {
           fileUrl: null,
-          content: "This message has been deleted.",
+          content: "这条信息被删除了.",
           deleted: true,
         },
         include: {

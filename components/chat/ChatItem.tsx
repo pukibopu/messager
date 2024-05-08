@@ -112,7 +112,7 @@ export const ChatItem = ({ id, content, member,
         form.reset({
             content: content
         })
-    }, [content])
+    }, [content, form])
     return (
         <div className="relative group flex items-center hover:bg-black/5 p-4 transition w-full">
             <div className="group flex gap-x-2 items-start w-full">
@@ -170,7 +170,7 @@ export const ChatItem = ({ id, content, member,
                             {content}
                             {isUpdated && !deleted && (
                                 <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
-                                    (edited)
+                                    (已修改)
                                 </span>
                             )}
                         </p>
