@@ -20,7 +20,7 @@ import axios from "axios";
 import {useRouter} from "next/navigation";
 
 const formSchema = z.object({
-    name: z.string().min(1, {message: "需要服务器名"}),
+    name: z.string().min(1, {message: "需要群组名"}),
     imageUrl: z.string().min(1, {message: "需要服务器头像"})
 })
 
@@ -66,10 +66,10 @@ export const InitialModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        自定义你的服务器
+                        自定义你的群组
                     </DialogTitle>
                     <DialogDescription className="text-center text-zinc-500">
-                        给你的服务器一个个性化的名字和头像，后面还可以更改。
+                        给你的群组一个个性化的名字和头像，后面还可以更改。
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
@@ -89,7 +89,7 @@ export const InitialModal = () => {
                                            <FormItem>
                                                <FormLabel
                                                    className="text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                                                   服务器名
+                                                   群组名
                                                </FormLabel>
                                                <FormControl>
                                                    <Input disabled={isLoading} className="bg-zinc-300/50 border-0 focus-visible:ring-0
